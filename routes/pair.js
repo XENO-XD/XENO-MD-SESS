@@ -23,11 +23,11 @@ const {
 } = require("@whiskeysockets/baileys");
 
 const sessionDir = path.join("/tmp", "session");
-if (!fs.existsSync(sessionDir)) {
-    fs.mkdirSync(sessionDir, { recursive: true });
-}
 
 router.get('/', async (req, res) => {
+    if (!fs.existsSync(sessionDir)) {
+        fs.mkdirSync(sessionDir, { recursive: true });
+    }
     const id = giftedId();
     let num = req.query.number;
     let responseSent = false;
