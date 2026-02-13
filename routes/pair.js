@@ -181,7 +181,7 @@ router.get('/', async (req, res) => {
                 } else if (connection === "close" && lastDisconnect && lastDisconnect.error && lastDisconnect.error.output.statusCode != 401) {
                     console.log("Reconnecting...");
                     await delay(5000);
-                    GIFTED_PAIR_CODE();
+                    XENO_MD_PAIR_CODE();
                 }
             });
 

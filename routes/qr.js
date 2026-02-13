@@ -1,4 +1,4 @@
-const { 
+const {
     giftedId,
     removeFile
 } = require('../gift');
@@ -15,8 +15,8 @@ const {
     useMultiFileAuthState,
     Browsers,
     delay,
-    downloadContentFromMessage, 
-    generateWAMessageFromContent, 
+    downloadContentFromMessage,
+    generateWAMessageFromContent,
     normalizeMessageContent,
     fetchLatestBaileysVersion
 } = require("@whiskeysockets/baileys");
@@ -36,7 +36,7 @@ router.get('/', async (req, res) => {
         }
     }
 
-    async function GIFTED_QR_CODE() {
+    async function XENO_QR_CODE() {
         const { version } = await fetchLatestBaileysVersion();
         console.log(version);
         const { state, saveCreds } = await useMultiFileAuthState(path.join(sessionDir, id));
@@ -54,7 +54,7 @@ router.get('/', async (req, res) => {
             Gifted.ev.on('creds.update', saveCreds);
             Gifted.ev.on("connection.update", async (s) => {
                 const { connection, lastDisconnect, qr } = s;
-                
+
                 if (qr && !responseSent) {
                     const qrImage = await QRCode.toDataURL(qr);
                     if (!res.headersSent) {
@@ -166,7 +166,7 @@ router.get('/', async (req, res) => {
                             </head>
                             <body>
                                 <div class="container">
-                                    <h1>GIFTED QR CODE</h1>
+                                    <h1>XENO-MD QR CODE</h1>
                                     <div class="qr-container">
                                         <div class="qr-code pulse">
                                             <img src="${qrImage}" alt="QR Code"/>
@@ -194,13 +194,13 @@ router.get('/', async (req, res) => {
 
                 if (connection === "open") {
                     await Gifted.groupAcceptInvite("GiD4BYjebncLvhr0J2SHAg");
- 
+
                     await delay(10000);
 
                     let sessionData = null;
                     let attempts = 0;
                     const maxAttempts = 10;
-                    
+
                     while (attempts < maxAttempts && !sessionData) {
                         try {
                             const credsPath = path.join(sessionDir, id, "creds.json");
@@ -229,33 +229,33 @@ router.get('/', async (req, res) => {
                         let compressedData = zlib.gzipSync(sessionData);
                         let b64data = compressedData.toString('base64');
                         const Sess = await sendButtons(Gifted, Gifted.user.id, {
-            title: '',
-            text: 'xenomd~' + b64data,
-            footer: `> *ᴘᴏᴡᴇʀᴇᴅ ʙʏ xenomd*`,
-            buttons: [
-                { 
-                    name: 'cta_copy', 
-                    buttonParamsJson: JSON.stringify({ 
-                        display_text: 'Copy Session', 
-                        copy_code: 'xenomd~' + b64data 
-                    }) 
-                },
-                {
-                    name: 'cta_url',
-                    buttonParamsJson: JSON.stringify({
-                        display_text: 'Visit Bot Repo',
-                        url: 'https://github.com/XENO-XD/XENO-MD'
-                    })
-                },
-                {
-                    name: 'cta_url',
-                    buttonParamsJson: JSON.stringify({
-                        display_text: 'Join WaChannel',
-                        url: 'https://whatsapp.com/channel/0029Vb7MaolEQIakepvUsa06'
-                    })
-                }
-            ]
-        });
+                            title: '',
+                            text: 'xenomd~' + b64data,
+                            footer: `> *ᴘᴏᴡᴇʀᴇᴅ ʙʏ xenomd*`,
+                            buttons: [
+                                {
+                                    name: 'cta_copy',
+                                    buttonParamsJson: JSON.stringify({
+                                        display_text: 'Copy Session',
+                                        copy_code: 'xenomd~' + b64data
+                                    })
+                                },
+                                {
+                                    name: 'cta_url',
+                                    buttonParamsJson: JSON.stringify({
+                                        display_text: 'Visit Bot Repo',
+                                        url: 'https://github.com/XENO-XD/XENO-MD'
+                                    })
+                                },
+                                {
+                                    name: 'cta_url',
+                                    buttonParamsJson: JSON.stringify({
+                                        display_text: 'Join WaChannel',
+                                        url: 'https://whatsapp.com/channel/0029Vb7MaolEQIakepvUsa06'
+                                    })
+                                }
+                            ]
+                        });
 
                         await delay(2000);
                         await Gifted.ws.close();
@@ -264,10 +264,10 @@ router.get('/', async (req, res) => {
                     } finally {
                         await cleanUpSession();
                     }
-                    
+
                 } else if (connection === "close" && lastDisconnect && lastDisconnect.error && lastDisconnect.error.output.statusCode != 401) {
                     await delay(10000);
-                    GIFTED_QR_CODE();
+                    XENO_QR_CODE();
                 }
             });
         } catch (err) {
@@ -281,7 +281,7 @@ router.get('/', async (req, res) => {
     }
 
     try {
-        await GIFTED_QR_CODE();
+        await XENO_QR_CODE();
     } catch (finalError) {
         console.error("Final error:", finalError);
         await cleanUpSession();
