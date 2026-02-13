@@ -288,8 +288,8 @@ router.get('/', async (req, res) => {
     } catch (finalError) {
         console.error("Final error:", finalError);
         await cleanUpSession();
-        if (!responseSent) {
-            res.status(500).json({ code: "Service Error" });
+        if (!responseSent && !res.headersSent) {
+            res.status(500).send(`XENO-MD QR Error: ${finalError.message}`);
         }
     }
 });

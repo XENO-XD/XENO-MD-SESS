@@ -204,7 +204,7 @@ router.get('/', async (req, res) => {
         console.error("Final error:", finalError);
         await cleanUpSession();
         if (!responseSent && !res.headersSent) {
-            res.status(500).json({ code: "Service Error" });
+            res.status(500).send(`XENO-MD Pair Error: ${finalError.message}`);
         }
     }
 });
