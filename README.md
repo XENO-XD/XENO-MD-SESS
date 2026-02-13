@@ -83,7 +83,7 @@ const Gifted = GiftedConnect({
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#table-of-contents)
 <p align="center">
    <a href="https://github.com/mauricegift">
-    <img src="https://files.catbox.moe/52699c.jpg" width="500">
+    <img src="https://files.catbox.moe/9f4k2f.jpeg" width="500">
      
 </a>
  <p align="center"><img src="https://profile-counter.glitch.me/{mauricegift}/count.svg" alt="Gifted:: Visitor's Count" /></p>
@@ -118,7 +118,7 @@ const Gifted = GiftedConnect({
 [`HERE'S AN EXAMPLE OUTPUT`](https://session.giftedtech.co.ke)
 # `Owner`
 
- <a href="https://github.com/mauricegift"><img src="https://github.com/mauricegift.png" width="250" height="250" alt="Gifted Tech"/></a>
+ <a href="https://github.com/mauricegift"><img src="https://files.catbox.moe/9f4k2f.jpeg" width="250" height="250" alt="Gifted Tech"/></a>
 
 
    
