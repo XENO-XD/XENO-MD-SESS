@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "engines": {
-    "node": "20.x"
+    "node": "24.x"
   },
   "scripts": {
     "start": "node index.js",
@@ -17,6 +17,6 @@
     "pino": "^8.19.0",
     "path": "^0.12.7",
     "bcryptjs": "^3.0.2",
-    "gifted-btns": "^1.0.1"
+    "gifted-btns": "1.0.0"
   }
 }
