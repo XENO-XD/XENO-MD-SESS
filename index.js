@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/health', (req, res) => {
-    res.status(200).json({ status: "OK", service: 'Gifted-Md' });
+  res.status(200).json({ status: "OK", service: 'XENO-MD' });
 });
 
 // DO NOT use app.listen(PORT) here for Vercel.
