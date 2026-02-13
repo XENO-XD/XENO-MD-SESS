@@ -1,0 +1,17 @@
+{
+    "name": "XENO-MD Session Generator",
+    "description": "Web Session Generator",
+    "logo": "https://files.catbox.moe/9f4k2f.jpeg",
+    "repository": "https://github.com/XENO-XD/XENO-MD-SESS",
+    "keywords": ["XENO-XD"],
+    "success_url": "/", 
+    "buildpacks": [{ "url": "https://github.com/heroku/heroku-buildpack-nodejs#latest" } ],
+    "env": {      
+      "PORT": {
+        "description": "Port for web app.4000,5000,3000... any!",
+        "value": "50900",
+        "required": false 
+      }
+    }   
+
+}
