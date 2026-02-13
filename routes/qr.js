@@ -21,7 +21,10 @@ const {
     fetchLatestBaileysVersion
 } = require("@whiskeysockets/baileys");
 
-const sessionDir = path.join(__dirname, "session");
+const sessionDir = path.join("/tmp", "session");
+if (!fs.existsSync(sessionDir)) {
+    fs.mkdirSync(sessionDir, { recursive: true });
+}
 
 
 router.get('/', async (req, res) => {
